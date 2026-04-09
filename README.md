@@ -103,19 +103,9 @@ An Agentic AI system is a **distributed architecture of specialized services**. 
 
 ### 2.7 Architectural Flow
 
-```
-User provides a Goal
-        ↓
-Orchestrator requests a strategy from the Planner
-        ↓
-Planner + LLM reasons through steps → lists required Tools
-        ↓
-Executor triggers each tool (APIs, RAG, Sub-Agents)
-        ↓
-Memory tracks state and results throughout
-        ↓
-Orchestrator delivers the final output
-```
+<img width="1440" height="1656" alt="image" src="https://github.com/user-attachments/assets/bba11f71-029f-4b30-a67a-ed2895138a5e" />
+
+
 
 ---
 
