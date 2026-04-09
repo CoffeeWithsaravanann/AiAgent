@@ -202,6 +202,8 @@ Most agentic AI applications are built from one or more of these five core patte
 
 The LLM acts as a **reviewer or judge** — critiquing output from itself, another LLM, or a human. Think of it as peer review, automated.
 
+<img width="1440" height="1102" alt="image" src="https://github.com/user-attachments/assets/8a73509d-931a-4b1d-82ac-0608575392cc" />
+
 **How it works:**
 - The LLM is given a set of evaluation **criteria** that guide what aspects to focus on
 - It can call external tools (e.g., a RAG system) to verify facts during review
@@ -227,6 +229,8 @@ Final response returned to user
 > 💡 The reviewer LLM can be the same model critiquing its own output, or a completely separate model acting as an independent judge.
 
 ---
+
+<img width="1440" height="1144" alt="image" src="https://github.com/user-attachments/assets/481de713-04e4-422c-a796-c22ced1661ae" />
 
 ### 4.2 Router Pattern
 
