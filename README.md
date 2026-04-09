@@ -77,8 +77,49 @@ An agentic system isn't a single tool; it is a **multi-service orchestration** d
 
 ---
 
-### **Key Takeaway for a Data Architect**
-In this architecture, the **LLM is the decision-engine**, but the **Orchestrator is the infrastructure**. 
 
-Your experience with cloud and big data will be particularly useful when you look at the **Executor** (how it calls APIs/services) and **Memory** (how state is stored in databases).
+# **Chapter 2: An Agentic AI System – Reference Architecture**
+
+### **1. Core Components Overview**
+An Agentic AI system is a distributed architecture of specialized services rather than a single monolithic app. The goal is to move beyond simple prompts to **autonomous goal completion**.
+
+### **2. Goals: The "What" and "Why"**
+* **Definition:** A goal is a high-level objective that requires multi-step reasoning.
+* **Difference from Prompts:** While a prompt is a direct instruction (e.g., "Write an email"), a **Goal** is a mission (e.g., "Research the competitor's pricing, compare it with ours, and then draft a strategy email").
+* **Inputs:** Goals are often supplemented by external knowledge, real-time data, or user-defined constraints.
+
+### **3. The Planner: The Strategy Engine**
+* **Function:** It breaks a complex Goal into a sequence of actionable steps.
+* **Role of GenAI:** The Planner uses an LLM to "think through" the logic. It looks at the current progress and decides what the *next best action* is.
+* **Adaptive Nature:** If a step fails, the Planner can re-route and create a new plan based on the feedback.
+
+### **4. Orchestrator & Executor: The Project Manager & The Muscle**
+* **The Orchestrator:** This is the central hub. it manages the lifecycle of the task, moving information between the Planner, the Executor, and the Memory.
+* **The Executor:** This component is responsible for actually "doing" the work. It takes the specific instructions from the Planner and triggers the necessary tools to perform the task.
+
+### **5. Tools: The Interface to the Real World**
+Tools allow the AI to interact with external environments. Common types include:
+* **RAG (Retrieval-Augmented Generation):** Used as a tool to fetch specific data from documents or databases.
+* **Functions/APIs:** Code that allows the agent to call microservices, databases, or external cloud services.
+* **Sub-Agents:** A complex agent can call a smaller, specialized agent as a "tool" to handle a niche task.
+
+### **6. GenAI Models: The Decision Engines**
+* **Heterogeneous Models:** An agentic system doesn't have to use the same LLM for everything.
+    * *Example:* You might use a heavy model (like GPT-4 or Gemini Pro) for the **Planner** to ensure high-quality reasoning, but a smaller, faster model for the **Executor** or **Summary** tasks to save costs and latency.
+
+### **7. Memory: Short-Term & Long-Term Context**
+* **Short-Term Memory:** Stores the context of the current session or task (what has been tried in the last 5 minutes).
+* **Long-Term Memory:** Stores historical interactions, learned user preferences, and results of past goals.
+* **State Management:** This is what makes the system "Agentic"—it maintains its "state" over time, allowing it to resume tasks and improve its performance through experience.
+
+---
+
+### **Architectural Flow Summary**
+1.  **Input:** User provides a **Goal**.
+2.  **Logic:** The **Orchestrator** asks the **Planner** for a strategy.
+3.  **Reasoning:** The **Planner** uses an **LLM** to list required **Tools**.
+4.  **Action:** The **Executor** triggers those tools (APIs, RAG, etc.).
+5.  **Context:** **Memory** tracks the state and results throughout the process.
+6.  **Output:** The **Orchestrator** delivers the final result.
+
 
