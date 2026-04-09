@@ -51,11 +51,6 @@ These provide the "Brain" (the LLMs) and the managed environment to run them.
 | **Compute/Models** | Bedrock / Vertex AI | Accessing the LLMs and cloud-scale infrastructure. |
 
 
-This is a great starting point for your journey. Essentially, the course is moving you away from thinking of AI as a "chatbot" and toward seeing it as a **distributed system**. 
-
-Here is a clear, architectural summary of the components and how they interact:
-
----
 
 ## **The Agentic AI Ecosystem: A Reference Architecture**
 
